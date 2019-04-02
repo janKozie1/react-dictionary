@@ -1,14 +1,29 @@
-import React, {useState}  from 'react';
+import React, { useState } from 'react';
+import styled, { css } from 'styled-components';
+
+import Word from './Word'
 import UserInput from './UserInput'
-const App = () => {
+
+
+
+const App = ({ className, children }) => {
     let [result, updateResult] = useState(null)
     console.log(result)
     return (
-        <div> 
+        <div className={className}>
             <UserInput updateResult={updateResult} />
-            
+            {
+                result ? result.map((e,index) => {
+                    return <Word data={e} key={index}/>
+                }) :
+                    null
+            }
         </div>
     );
 };
 
-export default App;
+const styledApp = styled(App)`
+    background:red;
+    padding:20px
+`
+export default styledApp;
