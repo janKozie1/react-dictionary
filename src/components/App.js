@@ -1,29 +1,29 @@
 import React, { useState } from 'react';
-import styled, { css } from 'styled-components';
 
 import Word from './Word'
 import UserInput from './UserInput'
+import Header from './Header'
+import * as S from '../styledComponents/all'
 
 
 
-const App = ({ className, children }) => {
+const App = () => {
     let [result, updateResult] = useState(null)
-    console.log(result)
     return (
-        <div className={className}>
-            <UserInput updateResult={updateResult} />
+        <S.Wrapper>
+            <S.GlobalStyle />
+            <Header>
+                <S.Heading>Translate</S.Heading>
+                <UserInput updateResult={updateResult} />
+            </Header>
             {
-                result ? result.map((e,index) => {
-                    return <Word data={e} key={index}/>
+                result ? result.map((e, index) => {
+                    return <Word data={e} key={index} />
                 }) :
                     null
             }
-        </div>
+        </S.Wrapper>
     );
 };
 
-const styledApp = styled(App)`
-    background:red;
-    padding:20px
-`
-export default styledApp;
+export default App;

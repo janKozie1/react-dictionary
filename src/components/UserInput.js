@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
-import dictionary from '../api/dictionary_api'
+import styled from 'styled-components'
+import dictionary from '../api/dictionary_api';
+
+import * as S from '../styledComponents/all';
+
 const UserInput = ({updateResult}) => {
     let [query,updateQuery] = useState('');
 
@@ -17,9 +21,9 @@ const UserInput = ({updateResult}) => {
     }
 
     return (
-        <form className='user-input container' onSubmit={(e)=>onFormSubmit(e)}>
-            <input className='user-input input' type='text' value={query} onChange={(e)=>updateQuery(e.target.value)} />
-        </form>
+        <S.Form onSubmit={(e)=>onFormSubmit(e)}>
+            <S.Input type='text' value={query} onChange={(e)=>updateQuery(e.target.value)} />
+        </S.Form>
     );
 };
 
