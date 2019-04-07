@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import styled from 'styled-components'
 import dictionary from '../api/dictionary_api';
 
 import * as S from '../styledComponents/all';
+
+import {validateQuery} from '../functions/validateQuery'
 
 const UserInput = ({updateResult}) => {
     let [query,updateQuery] = useState('');
@@ -16,7 +17,12 @@ const UserInput = ({updateResult}) => {
     }
     let onFormSubmit = (e) =>{
         e.preventDefault();
-        sendRequest(query).then(e=>updateResult(e.data));
+        
+        if(validateQuery(query)){
+            sendRequest(query).then(e=>{
+                updateResult(e.data);
+            })
+        } 
         updateQuery('');
     }
 
