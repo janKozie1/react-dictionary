@@ -1,13 +1,24 @@
 import React from 'react';
 
+import * as S from '../styledComponents/all'
+
 const Word = ({data}) => {
     console.log(data)
+    let formatData = (data) =>{
+        return {
+            date:data.date ? data.date.indexOf('{')!==-1?data.date.substring(0,data.date.indexOf('{')) + ' century' :  data.date:'',
+            grFunction:data.fl,
+            shortdef:data.shortdef
+        }
+    }
+    let fData = formatData(data);
+
     return (
-        <div>
-            <p>{data.date}</p>
+        <S.Word>
+            <p>{fData.date}</p>
             <p>{data.fl}</p>
             <p>{data.shortdef[0]}</p>
-        </div>
+        </S.Word>
     );
 };
 

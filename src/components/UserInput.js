@@ -20,7 +20,8 @@ const UserInput = ({updateResult}) => {
         
         if(validateQuery(query)){
             sendRequest(query).then(e=>{
-                updateResult(e.data);
+                typeof e.data[0] === 'string' ? updateResult({type:'recom', data:e.data}): updateResult({type:'definitions', data:e.data})
+                
             })
         } 
         updateQuery('');

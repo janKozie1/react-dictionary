@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 
-import Word from './Word'
 import UserInput from './UserInput'
 import Header from './Header'
+import WordsContainer from './WordsContainer'
+
 import * as S from '../styledComponents/all'
 
 
 
 const App = () => {
-    let [result, updateResult] = useState([])
+    let [result, updateResult] = useState({
+        data: [],
+        type: null
+    })
     return (
         <S.Wrapper>
             <S.GlobalStyle />
@@ -17,10 +21,11 @@ const App = () => {
                 <UserInput updateResult={updateResult} />
             </Header>
             {
-                result.length ? result.map((e, index) => {
-                    return index
-                }) :
-                    null
+                result.type  ?
+                    <WordsContainer data={result.data} type={result.type} />
+                :
+                null
+                
             }
         </S.Wrapper>
     );

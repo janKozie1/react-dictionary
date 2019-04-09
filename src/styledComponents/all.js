@@ -28,6 +28,7 @@ export let Header = styled.header`
     height:50%;
     align-content:center;
     justify-items:center;
+    box-shadow:0 0 5px rgba(0,0,0,0.5);
 `
 export let Wrapper = styled.div`
     height:100vh;
@@ -51,4 +52,29 @@ export let Heading = styled.h2`
     font-weight:normal;
     display:flex;
     justify-content:center;
+`
+
+export let DefinitionContainer = styled.div`
+    display:grid;
+    grid-template-columns:2fr 6fr 2fr;
+    grid-row-gap:2em;
+`
+
+export let RecomContainer = styled.div`
+    display:grid;
+    grid-template-columns:2fr 6fr 2fr;
+    grid-row-gap:2em;
+`
+
+export let Word = styled.div`
+    grid-column:2/3;
+    width:100%;
+    padding:5px;
+    border-radius:5px;
+    box-shadow:0px 0px 2px rgba(0,0,0,0.5);
+    height:200px;
+
+    &:first-child{
+        margin-top:2em;
+    }
 `
