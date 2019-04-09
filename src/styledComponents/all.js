@@ -1,4 +1,4 @@
-import styled, { css, createGlobalStyle   } from 'styled-components';
+import styled, { css, createGlobalStyle } from 'styled-components';
 
 
 export let GlobalStyle = createGlobalStyle`
@@ -12,6 +12,21 @@ export let GlobalStyle = createGlobalStyle`
         }
     }
 `
+export let Wrapper = styled.div`
+    height:100vh;
+`
+
+export let Header = styled.header`
+    background:#303F9F;
+    display:grid;
+    text-align:center;
+    grid-template-columns:1fr 5fr 1fr;
+    grid-template-rows:1fr 2fr 3fr 1fr;
+    height:40%;
+    align-content:center;
+    justify-items:center;
+    box-shadow:0 0 5px rgba(0,0,0,0.5);
+`
 
 export let Form = styled.form`
     grid-column:2/3;
@@ -19,20 +34,7 @@ export let Form = styled.form`
     display:flex;
     align-items:center;
 `
-export let Header = styled.header`
-    background:#303F9F;
-    display:grid;
-    text-align:center;
-    grid-template-columns:1fr 5fr 1fr;
-    grid-template-rows:1fr 2fr 3fr 1fr;
-    height:50%;
-    align-content:center;
-    justify-items:center;
-    box-shadow:0 0 5px rgba(0,0,0,0.5);
-`
-export let Wrapper = styled.div`
-    height:100vh;
-`
+
 
 export let Input = styled.input`
     padding:10px 5px;
@@ -54,17 +56,41 @@ export let Heading = styled.h2`
     justify-content:center;
 `
 
-export let DefinitionContainer = styled.div`
+export let WordsContainer = styled.div`
     display:grid;
     grid-template-columns:2fr 6fr 2fr;
     grid-row-gap:2em;
+`
+export let RecomContainer = styled.div`
+    display:flex;
+    grid-column:2/3;
+    align-items:center;
+    justify-content:center;
+    width:100%;
+    flex-direction:column;
+    >header{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-direction:column;
+    }
+    >section{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex-wrap:wrap;
+    }
+`
+export let Recom = styled.div`
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:2px 5px;
+    border: 1px solid grey;
+    border-radius:2px;
+    margin:5px;
 `
 
-export let RecomContainer = styled.div`
-    display:grid;
-    grid-template-columns:2fr 6fr 2fr;
-    grid-row-gap:2em;
-`
 
 export let Word = styled.div`
     grid-column:2/3;
