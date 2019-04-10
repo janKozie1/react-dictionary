@@ -56,7 +56,7 @@ export let Heading = styled.h2`
     justify-content:center;
 `
 
-export let WordsContainer = styled.div`
+export let BodyContainer = styled.div`
     display:grid;
     grid-template-columns:2fr 6fr 2fr;
     grid-row-gap:2em;
@@ -89,17 +89,23 @@ export let Recom = styled.div`
     border: 1px solid grey;
     border-radius:2px;
     margin:5px;
+    cursor:grab;
 `
-
-
-export let Word = styled.div`
+export let WordsContainer = styled.div`
+    display:grid;
     grid-column:2/3;
-    width:100%;
-    padding:5px;
+    grid-row-gap:1em;
+`
+export let Word = styled.div`
+
+    padding:10px 20px;
     border-radius:5px;
     box-shadow:0px 0px 2px rgba(0,0,0,0.5);
     height:200px;
-
+    display:flex;
+    align-items:flex-start;
+    flex-direction:column;
+    justify-content:flex-start;
     &:first-child{
         margin-top:2em;
     }

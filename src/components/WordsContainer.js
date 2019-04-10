@@ -1,11 +1,14 @@
 import React from 'react';
+
 import WordRecom from './WordRecom'
+import WordDef from './WordDef'
+
 import * as S from '../styledComponents/all'
 
-const WordsContainer = ({ data, type }) => {
+const WordsContainer = ({ data, type, updateQTS }) => {
 
     return (
-        <S.WordsContainer>
+        <S.BodyContainer>
             {
                 type === 'recom' ?
                     <S.RecomContainer>
@@ -15,15 +18,22 @@ const WordsContainer = ({ data, type }) => {
                         </header>
                         <section>
                             {data.map((e, index) => {
-                                return <WordRecom data={e} key={index} />
+                                return <WordRecom data={e} key={index} updateQTS={updateQTS} />
                             })}
                         </section>
 
                     </S.RecomContainer>
                     :
-                    null
+                    <S.WordsContainer>
+                        {
+                            data.map((e, index) => {
+                                return <WordDef data={e} key={index} />
+                            })
+                        }
+                    </S.WordsContainer>
+
             }
-        </S.WordsContainer>
+        </S.BodyContainer>
     );
 };
 

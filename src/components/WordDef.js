@@ -6,18 +6,20 @@ const Word = ({data}) => {
     console.log(data)
     let formatData = (data) =>{
         return {
-            date:data.date ? data.date.indexOf('{')!==-1?data.date.substring(0,data.date.indexOf('{')) + ' century' :  data.date:'',
+            word:data.hwi?data.hwi.hw:'',
+            date:data.date ? data.date.indexOf('{')!==-1?data.date.substring(0,data.date.indexOf('{')) :  data.date:'No date',
             grFunction:data.fl,
-            shortdef:data.shortdef
+            shortdef:data.shortdef,
+
         }
     }
     let fData = formatData(data);
 
     return (
         <S.Word>
+            <h4>{fData.word} <span> - {fData.grFunction}</span></h4>
             <p>{fData.date}</p>
-            <p>{data.fl}</p>
-            <p>{data.shortdef[0]}</p>
+            <p>{fData.shortdef[0]}</p>
         </S.Word>
     );
 };
