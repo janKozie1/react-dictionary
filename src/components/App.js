@@ -17,6 +17,7 @@ const App = () => {
         data: [],
         type: null
     })
+    let [query, updateQuery] = useState('');
     let [status, updateStatus] = useState('')
     let [queryToSend, updateQTS] = useState('');
     let fetchData = async (q) => {
@@ -28,6 +29,7 @@ const App = () => {
     }
     useEffect(() => {
         if (validateQuery(queryToSend)) {
+            updateQuery(queryToSend)
             updateStatus('loading')
             fetchData(queryToSend).then((e) => {
                 updateStatus('done')
@@ -41,9 +43,9 @@ const App = () => {
             <S.GlobalStyle />
             <Header>
                 <S.Heading>Find the definition of a word!</S.Heading>
-                <UserInput updateQTS={updateQTS} />
+                <UserInput updateQTS={updateQTS} query={query} updateQuery={updateQuery}/>
             </Header>
-            <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status} />   
+            <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status}  />   
         </S.Wrapper>
     );
 };

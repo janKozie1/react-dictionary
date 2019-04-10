@@ -3,8 +3,8 @@ import React, { useState } from 'react';
 import * as S from '../styledComponents/all';
 
 
-const UserInput = ({ updateQTS }) => {
-    let [query, updateQuery] = useState('');
+const UserInput = ({ updateQTS, query, updateQuery }) => {
+    
 
     let onFormSubmit = (e) =>{
         e.preventDefault();
