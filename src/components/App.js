@@ -6,7 +6,7 @@ import WordsContainer from './WordsContainer'
 
 import dictionary from '../api/dictionary_api';
 
-import {validateQuery} from '../functions/validateQuery'
+import { validateQuery } from '../functions/validateQuery'
 
 import * as S from '../styledComponents/all'
 
@@ -17,21 +17,24 @@ const App = () => {
         data: [],
         type: null
     })
-    let [queryToSend,updateQTS] = useState('');
-    let fetchData = async(q)=>{
-         return await dictionary.get(q, {
+    let [status, updateStatus] = useState('')
+    let [queryToSend, updateQTS] = useState('');
+    let fetchData = async (q) => {
+        return await dictionary.get(q, {
             params: {
                 key: '7ef7e2ba-bcbc-4d10-9f6c-4e0062a57f9a'
             }
         })
     }
-    useEffect(()=>{
-        if(validateQuery(queryToSend)){
-            fetchData(queryToSend).then((e)=>{
-                typeof e.data[0] === 'string' ? updateResult({type:'recom', data:e.data}): updateResult({type:'definitions', data:e.data})
+    useEffect(() => {
+        if (validateQuery(queryToSend)) {
+            updateStatus('loading')
+            fetchData(queryToSend).then((e) => {
+                updateStatus('done')
+                typeof e.data[0] === 'string' ? updateResult({ type: 'recom', data: e.data }) : updateResult({ type: 'definitions', data: e.data })
             })
         }
-    },[queryToSend])
+    }, [queryToSend])
 
     return (
         <S.Wrapper>
@@ -40,12 +43,7 @@ const App = () => {
                 <S.Heading>Find the definition of a word!</S.Heading>
                 <UserInput updateQTS={updateQTS} />
             </Header>
-            {
-                result.type  ?
-                    <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS}/>
-                :
-                null            
-            }
+            <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status} />   
         </S.Wrapper>
     );
 };

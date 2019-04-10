@@ -1,5 +1,13 @@
-import styled, { css, createGlobalStyle } from 'styled-components';
+import styled, { css, createGlobalStyle,keyframes } from 'styled-components';
 
+const rotate = keyframes`
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+`
 
 export let GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto');  
@@ -60,6 +68,33 @@ export let BodyContainer = styled.div`
     display:grid;
     grid-template-columns:2fr 6fr 2fr;
     grid-row-gap:2em;
+    position: relative;
+    
+`
+
+
+export let Loader = styled.div`
+    grid-column:2/3;
+    width: 64px;
+    height: 64px;
+    position:absolute;
+    left:0;
+    right:0;
+    margin:auto;
+    margin-top:20%;
+    &:after{
+        content: " ";
+        display: block;
+        width: 46px;
+        height: 46px;
+        margin: 1px;
+        margin-top:20px;
+        border-radius: 50%;
+        border: 3px solid #303F9F;
+        border-color: #303F9F transparent #303F9F transparent;
+        animation: ${rotate} 1.2s linear infinite;
+    }
+
 `
 export let RecomContainer = styled.div`
     display:flex;
@@ -68,6 +103,7 @@ export let RecomContainer = styled.div`
     justify-content:center;
     width:100%;
     flex-direction:column;
+    text-align:center;
     >header{
         display:flex;
         align-items:center;
