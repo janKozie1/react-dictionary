@@ -1,4 +1,4 @@
-#react-dictionary
+# react-dictionary
 
   Single page web app written in React.js, which uses hooks api.
 
