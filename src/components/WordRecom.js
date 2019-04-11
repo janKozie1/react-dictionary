@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as S from '../styledComponents/all'
+import * as S from '../styledComponents/wordRecom'
 
 const WordRecom = ({ data, updateQTS }) => {
     return (

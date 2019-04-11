@@ -8,9 +8,7 @@ import dictionary from '../api/dictionary_api';
 
 import { validateQuery } from '../functions/validateQuery'
 
-import * as S from '../styledComponents/all'
-
-
+import * as S from '../styledComponents/main'
 
 const App = () => {
     let [result, updateResult] = useState({

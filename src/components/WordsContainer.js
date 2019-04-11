@@ -3,7 +3,7 @@ import React from 'react';
 import WordRecom from './WordRecom'
 import WordDef from './WordDef'
 
-import * as S from '../styledComponents/all'
+import * as S from '../styledComponents/body'
 
 const WordsContainer = ({ data, type, updateQTS, status }) => {
 

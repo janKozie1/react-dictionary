@@ -2,7 +2,7 @@ import React from 'react';
 
 import {formatData} from '../functions/formatData'
 
-import * as S from '../styledComponents/all'
+import * as S from '../styledComponents/wordDef'
 
 const Word = ({ data }) => {
     let fData = formatData(data);

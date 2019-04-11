@@ -1,6 +1,6 @@
 import React from 'react';
 
-import * as S from '../styledComponents/all'
+import * as S from '../styledComponents/header'
 
 const Header = ({children}) => {
     return (

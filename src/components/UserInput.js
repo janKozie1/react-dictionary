@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 
-import * as S from '../styledComponents/all';
+import * as S from '../styledComponents/formComponents';
 
 
 const UserInput = ({ updateQTS, query, updateQuery }) => {
-    
-
     let onFormSubmit = (e) =>{
         e.preventDefault();
         updateQTS(query);
