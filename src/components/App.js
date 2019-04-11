@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import UserInput from './UserInput'
 import Header from './Header'
 import WordsContainer from './WordsContainer'
+import Quote from './Quote'
 
 import dictionary from '../api/dictionary_api';
 
@@ -43,7 +44,13 @@ const App = () => {
                 <S.Heading>Find the definition of a word!</S.Heading>
                 <UserInput updateQTS={updateQTS} query={query} updateQuery={updateQuery}/>
             </Header>
-            <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status}  />   
+            {
+                result.type?
+                <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status}  />   
+                :
+                <Quote/>
+            }
+            
         </S.Wrapper>
     );
 };
