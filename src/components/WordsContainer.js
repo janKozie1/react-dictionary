@@ -8,11 +8,9 @@ import * as S from '../styledComponents/body'
 const WordsContainer = ({ data, type, updateQTS, status }) => {
 
     return (
-        <S.BodyContainer>
+        <S.Wrapper>
             {
-                status === 'loading' ?
-                    <S.Loader>Loading...</S.Loader>
-                    :
+                
                     type === 'recom' ?
                         <S.RecomContainer>
                             <header>
@@ -38,7 +36,7 @@ const WordsContainer = ({ data, type, updateQTS, status }) => {
                         null
 
             }
-        </S.BodyContainer>
+        </S.Wrapper>
     );
 };
 

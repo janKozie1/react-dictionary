@@ -8,6 +8,7 @@ import Quote from './Quote'
 import dictionary from '../api/dictionary_api';
 
 import { validateQuery } from '../functions/validateQuery'
+import { quotes } from '../data/quotes';
 
 import * as S from '../styledComponents/main'
 
@@ -16,6 +17,7 @@ const App = () => {
         data: [],
         type: null
     })
+    let [quoteObj, setRandomQuote] = useState(quotes[(parseInt((Math.random() * 100) % quotes.length))])
     let [query, updateQuery] = useState('');
     let [status, updateStatus] = useState('')
     let [queryToSend, updateQTS] = useState('');
@@ -30,27 +32,30 @@ const App = () => {
         if (validateQuery(queryToSend)) {
             updateQuery(queryToSend)
             updateStatus('loading')
+            
             fetchData(queryToSend).then((e) => {
                 updateStatus('done')
                 typeof e.data[0] === 'string' ? updateResult({ type: 'recom', data: e.data }) : updateResult({ type: 'definitions', data: e.data })
             })
         }
     }, [queryToSend])
-
     return (
         <S.Wrapper>
             <S.GlobalStyle />
             <Header>
                 <S.Heading>Find the definition of a word!</S.Heading>
-                <UserInput updateQTS={updateQTS} query={query} updateQuery={updateQuery}/>
+                <UserInput updateQTS={updateQTS} query={query} updateQuery={updateQuery} />
             </Header>
-            {
-                result.type?
-                <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status}  />   
-                :
-                <Quote/>
-            }
-            
+            <S.BodyContainer>
+                {
+                    status === 'loading' ?
+                        <S.Loader>Loading...</S.Loader>
+                        : result.type ?
+                            <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status} />
+                            :
+                            <Quote quoteObj={quoteObj} />
+                }
+            </S.BodyContainer>
         </S.Wrapper>
     );
 };

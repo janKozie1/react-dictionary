@@ -67,7 +67,8 @@ export let WordsContainer = styled.div`
     }
 `
 
-export let BodyContainer = styled.div`
+export let Wrapper = styled.div`
+    grid-column:2/3;
     display:grid;
     grid-template-columns:2fr 6fr 2fr;
     grid-row-gap:2em;
