@@ -33,6 +33,9 @@ export let BodyContainer = styled.div`
     grid-row-gap:2em;
     position: relative;
     width:100%;
+    @media (max-width:760px){
+        grid-template-columns:1fr 6fr 1fr;
+    }
 `
 
 

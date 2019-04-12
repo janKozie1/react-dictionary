@@ -25,4 +25,8 @@ export let QuoteWrapper = styled.div`
         font-style:italic;
         font-size:1.1rem;
     }
+    @media (max-width:760px){
+        grid-template-columns:1fr minmax(min-content,5fr) 1fr;
+    }
+    
 `
