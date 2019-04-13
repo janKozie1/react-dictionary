@@ -3,7 +3,6 @@ import React from 'react';
 import * as S from '../styledComponents/quote'
 
 const Quote = ({quoteObj}) => {
-    
     let {quote,author} = quoteObj;
     return (
         <S.QuoteWrapper>
@@ -12,5 +11,4 @@ const Quote = ({quoteObj}) => {
         </S.QuoteWrapper>
     );
 };
-
 export default Quote;

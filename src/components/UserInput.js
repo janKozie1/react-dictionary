@@ -11,6 +11,7 @@ const UserInput = ({ updateQTS, query, updateQuery }) => {
     return (
         <S.Form onSubmit={(e)=>onFormSubmit(e)}>
             <S.Input type='text' value={query} onChange={(e) => updateQuery(e.target.value)} />
+            <S.Submit type='submit' value=''/>
         </S.Form>
     );
 };

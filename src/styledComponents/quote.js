@@ -1,4 +1,13 @@
-import styled from 'styled-components';
+import styled,{keyframes} from 'styled-components';
+
+const fadeIn = keyframes`
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+`
 
 export let QuoteWrapper = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
@@ -7,6 +16,7 @@ export let QuoteWrapper = styled.div`
     grid-column:2/3;
     grid-template-columns:3fr minmax(min-content,5fr) 3fr;
     grid-template-rows:100px minmax(auto,3fr) 6fr;
+    animation: ${fadeIn} 0.5s ease-in;
     >q{
         font-size:1.4rem;
         font-weight:300;
@@ -26,7 +36,8 @@ export let QuoteWrapper = styled.div`
         font-size:1.1rem;
     }
     @media (max-width:760px){
-        grid-template-columns:1fr minmax(min-content,5fr) 1fr;
+        grid-template-columns:auto;
     }
     
 `
+
