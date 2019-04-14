@@ -36,6 +36,12 @@ export let BodyContainer = styled.div`
     @media (max-width:760px){
         grid-template-columns:1fr 6fr 1fr;
     }
+    >h4{
+        grid-column:2/3;
+        text-align:center;
+        color:#FF5252;
+        padding-top:20%;
+    }
 `
 
 

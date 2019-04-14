@@ -29,7 +29,9 @@ export let Submit = styled.input`
     grid-column:3/4;
     grid-row:2/3;
     background-image:url(${bg});
-    background-size:contain;
+    background-size:50%;
+    background-repeat:no-repeat;
+    background-position:center center;
     &:focus{
         outline:none;
         box-shadow: inset 0px 0px 5px rgba(0,0,0,0.5)

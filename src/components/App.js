@@ -15,7 +15,7 @@ import * as S from '../styledComponents/main'
 const App = () => {
     let [result, updateResult] = useState({
         data: [],
-        type: null
+        type: 'error'
     })
     let [quoteObj, setRandomQuote] = useState(quotes[(parseInt((Math.random() * 100) % quotes.length))])
     let [query, updateQuery] = useState('');
@@ -32,11 +32,15 @@ const App = () => {
         if (validateQuery(queryToSend)) {
             updateQuery(queryToSend)
             updateStatus('loading')
-            
-            fetchData(queryToSend).then((e) => {
-                updateStatus('done')
-                typeof e.data[0] === 'string' ? updateResult({ type: 'recom', data: e.data }) : updateResult({ type: 'definitions', data: e.data })
-            })
+            try {
+                fetchData(queryToSend).then((e) => {
+                    updateStatus('done')
+                    typeof e.data[0] === 'string' ? updateResult({ type: 'recom', data: e.data }) : updateResult({ type: 'definitions', data: e.data })
+                })
+            } catch (err) {
+                updateResult({ data: [], type: 'error' })
+            }
+
         }
     }, [queryToSend])
     return (
@@ -50,10 +54,13 @@ const App = () => {
                 {
                     status === 'loading' ?
                         <S.Loader>Loading...</S.Loader>
-                        : result.type ?
-                            <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status} />
+                        : result.type === 'error' ?
+                            <h4>An unexpected error occured, please try again</h4>
                             :
-                            <Quote quoteObj={quoteObj} />
+                            result.type ?
+                                <WordsContainer data={result.data} type={result.type} updateQTS={updateQTS} status={status} />
+                                :
+                                <Quote quoteObj={quoteObj} />
                 }
             </S.BodyContainer>
         </S.Wrapper>
