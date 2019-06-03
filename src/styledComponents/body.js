@@ -59,7 +59,6 @@ export let WordsContainer = styled.div`
     display:grid;
     grid-column:2/3;
     grid-row-gap:1em;
-    margin:2em 0;
     grid-template-columns:1fr 1fr;
     grid-column-gap:1em;
     @media (max-width:760px){
@@ -67,12 +66,24 @@ export let WordsContainer = styled.div`
     }
 `
 
+export let WordColumn = styled.div`
+    display:flex;
+    justify-content:flex-start;
+    width:100%;
+    
+    flex-direction:column;
+`
+
 export let Wrapper = styled.div`
     grid-column:2/3;
+   
     display:grid;
     grid-template-columns:2fr 6fr 2fr;
     grid-row-gap:2em;
     position: relative;
+    @media (max-width:760px){
+        grid-template-columns:1fr 6fr 1fr;
+    }
     
 `
 

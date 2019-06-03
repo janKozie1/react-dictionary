@@ -15,7 +15,7 @@ import * as S from '../styledComponents/main'
 const App = () => {
     let [result, updateResult] = useState({
         data: [],
-        type: 'error'
+        type: ''
     })
     let [quoteObj, setRandomQuote] = useState(quotes[(parseInt((Math.random() * 100) % quotes.length))])
     let [query, updateQuery] = useState('');

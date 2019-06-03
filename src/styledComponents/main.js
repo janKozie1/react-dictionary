@@ -6,6 +6,7 @@ export let GlobalStyle = createGlobalStyle`
         width:100%;
         >body{
             font-family:'Roboto';
+            height:1px;
             min-height:100vh;
             width:100%;
             padding:0;
@@ -15,6 +16,7 @@ export let GlobalStyle = createGlobalStyle`
     }
 `
 export let Wrapper = styled.div`
+height:1px;
     min-height:100vh;
 `
 
@@ -30,6 +32,7 @@ export let Heading = styled.h2`
 export let BodyContainer = styled.div`
     display:grid;
     grid-template-columns:2fr 6fr 2fr;
+    min-height:70%;
     grid-row-gap:2em;
     position: relative;
     width:100%;

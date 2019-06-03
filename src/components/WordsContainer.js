@@ -5,8 +5,7 @@ import WordDef from './WordDef'
 
 import * as S from '../styledComponents/body'
 
-const WordsContainer = ({ data, type, updateQTS, status }) => {
-
+const WordsContainer = ({ data, type, updateQTS }) => {
     return (
         <S.Wrapper>
             {
@@ -24,12 +23,27 @@ const WordsContainer = ({ data, type, updateQTS, status }) => {
 
                     </S.RecomContainer>
                     :
-                    <S.WordsContainer>
-                        {
-                            data.map((e, index) => {
-                                return <WordDef data={e} key={index} />
-                            })
-                        }
+                    <S.WordsContainer >
+                        <S.WordColumn>
+                            {
+                                data.map((e, index) => {
+                                    return !(index%2) ? 
+                                     <WordDef data={e} key={index} last={index === data.length-1} />
+                                     :
+                                     null
+                                })
+                            }
+                        </S.WordColumn>
+                        <S.WordColumn>
+                            {
+                                data.map((e, index) => {
+                                    return (index%2) ? 
+                                     <WordDef data={e} key={index} last={index === data.length-1} />
+                                     :
+                                     null
+                                })
+                            }
+                        </S.WordColumn> 
                     </S.WordsContainer>
 
             }

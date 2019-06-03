@@ -3,12 +3,14 @@ import styled from 'styled-components';
 export let Word = styled.div`
     border-radius:5px;
     box-shadow:0px 0px 2px rgba(0,0,0,0.5);
+    height:max-content;
     border:1px dashed black;
     display:flex;
     align-items:flex-start;
     flex-direction:column;
     justify-content:flex-start;
     padding:10px 15px 20px 15px;
+    margin: 1em 0;
 
 `
 
