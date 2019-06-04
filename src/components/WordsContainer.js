@@ -13,7 +13,13 @@ const WordsContainer = ({ data, type, updateQTS }) => {
                     <S.RecomContainer>
                         <header>
                             <h3>No results found!</h3>
-                            <h4>Did you mean any of these words?</h4>
+                            {
+                                data.length ? 
+                                <h4>Did you mean any of these words?</h4>
+                                :
+                                null
+                            }
+                            
                         </header>
                         <section>
                             {data.map((e, index) => {
@@ -28,7 +34,7 @@ const WordsContainer = ({ data, type, updateQTS }) => {
                             {
                                 data.map((e, index) => {
                                     return !(index%2) ? 
-                                     <WordDef data={e} key={index} last={index === data.length-1} />
+                                     <WordDef data={e} key={index} only={data.length === 1} />
                                      :
                                      null
                                 })
@@ -38,7 +44,7 @@ const WordsContainer = ({ data, type, updateQTS }) => {
                             {
                                 data.map((e, index) => {
                                     return (index%2) ? 
-                                     <WordDef data={e} key={index} last={index === data.length-1} />
+                                     <WordDef data={e} key={index} only={data.length === 1} />
                                      :
                                      null
                                 })

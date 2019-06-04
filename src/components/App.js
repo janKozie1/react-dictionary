@@ -17,16 +17,22 @@ const App = () => {
         data: [],
         type: ''
     })
-    let [quoteObj, setRandomQuote] = useState(quotes[(parseInt((Math.random() * 100) % quotes.length))])
+    let [quoteObj] = useState(quotes[(parseInt((Math.random() * 100) % quotes.length))])
     let [query, updateQuery] = useState('');
     let [status, updateStatus] = useState('')
     let [queryToSend, updateQTS] = useState('');
     let fetchData = async (q) => {
-        return await dictionary.get(q, {
-            params: {
-                key: '7ef7e2ba-bcbc-4d10-9f6c-4e0062a57f9a'
-            }
-        })
+        try{
+            return await dictionary.get(q, {
+                params: {
+                    key: '7ef7e2ba-bcbc-4d10-9f6c-4e0062a57f9a'
+                }
+            }).catch(err => console.log(err))
+        }
+        catch(err){
+            console.log(err)
+        }
+        
     }
     useEffect(() => {
         if (validateQuery(queryToSend)) {
@@ -35,7 +41,9 @@ const App = () => {
             try {
                 fetchData(queryToSend).then((e) => {
                     updateStatus('done')
-                    typeof e.data[0] === 'string' ? updateResult({ type: 'recom', data: e.data }) : updateResult({ type: 'definitions', data: e.data })
+                    typeof e.data[0] === 'string' || !e.data[0] ? updateResult({ type: 'recom', data: e.data }) : updateResult({ type: 'definitions', data: e.data })
+                }).catch(err => {
+                    updateResult({ data: [], type: 'error' })
                 })
             } catch (err) {
                 updateResult({ data: [], type: 'error' })
@@ -44,7 +52,7 @@ const App = () => {
         }
     }, [queryToSend])
     return (
-        <S.Wrapper>
+        <>
             <S.GlobalStyle />
             <Header>
                 <S.Heading>Find the definition of a word!</S.Heading>
@@ -53,7 +61,7 @@ const App = () => {
             <S.BodyContainer>
                 {
                     status === 'loading' ?
-                        <S.Loader>Loading...</S.Loader>
+                        <S.Loader><p>Loading...</p></S.Loader>
                         : result.type === 'error' ?
                             <h4>An unexpected error occured, please try again</h4>
                             :
@@ -63,7 +71,7 @@ const App = () => {
                                 <Quote quoteObj={quoteObj} />
                 }
             </S.BodyContainer>
-        </S.Wrapper>
+       </>
     );
 };
 

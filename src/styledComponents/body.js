@@ -12,19 +12,21 @@ const rotate = keyframes`
 export let Loader = styled.div`
     grid-column:2/3;
     width: 64px;
-    height: 64px;
-    position:absolute;
-    left:0;
-    right:0;
-    margin:auto;
-    margin-top:20%;
+    min-height: 64px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    margin-bottom:10px;
+    >p{
+        margin:0;
+        margin-bottom:20px;
+    }
     &:after{
         content: " ";
         display: block;
         width: 46px;
         height: 46px;
-        margin: 1px;
-        margin-top:20px;
         border-radius: 50%;
         border: 3px solid #303F9F;
         border-color: #303F9F transparent #303F9F transparent;
@@ -37,7 +39,8 @@ export let RecomContainer = styled.div`
     display:flex;
     grid-column:2/3;
     align-items:center;
-    justify-content:center;
+    margin-top:20px;
+    justify-content:flex-start;
     width:100%;
     flex-direction:column;
     text-align:center;
@@ -52,6 +55,10 @@ export let RecomContainer = styled.div`
         align-items:center;
         justify-content:center;
         flex-wrap:wrap;
+    }
+    @media (max-width:760px){
+        justify-content:center;
+        margin:0%;
     }
 `
 

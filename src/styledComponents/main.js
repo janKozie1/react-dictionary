@@ -3,21 +3,26 @@ import styled,{createGlobalStyle,keyframes} from 'styled-components';
 export let GlobalStyle = createGlobalStyle`
     @import url('https://fonts.googleapis.com/css?family=Roboto');  
     html{
-        width:100%;
+        
+        min-height:100%;
+        font-family:'Raleway','sans-serif';
+        overflow-y: auto;
         >body{
-            font-family:'Roboto';
+            position:absolute;
             height:1px;
-            min-height:100vh;
+            min-height:100%;
             width:100%;
             padding:0;
             margin:0;
-            position:absolute;
-        }
+            #root{
+                height:1px;
+                min-height:calc(100% - 200px);
+            }
+        }   
+        *,*::after,*::before{
+            box-sizing:border-box;
+        } 
     }
-`
-export let Wrapper = styled.div`
-height:1px;
-    min-height:100vh;
 `
 
 export let Heading = styled.h2`
@@ -32,7 +37,10 @@ export let Heading = styled.h2`
 export let BodyContainer = styled.div`
     display:grid;
     grid-template-columns:2fr 6fr 2fr;
-    min-height:70%;
+    height:1px;
+    margin-top:200px;
+    padding-top:20px;
+    min-height:100%;
     grid-row-gap:2em;
     position: relative;
     width:100%;
@@ -61,7 +69,7 @@ export let Loader = styled.div`
     grid-column:2/3;
     width: 64px;
     height: 64px;
-    position:absolute;
+    position:relative;
     left:0;
     right:0;
     margin:auto;
@@ -69,8 +77,10 @@ export let Loader = styled.div`
     &:after{
         content: " ";
         display: block;
+        position:absolute;
         width: 46px;
         height: 46px;
+        left:calc(50% - 23px);
         margin: 1px;
         margin-top:20px;
         border-radius: 50%;

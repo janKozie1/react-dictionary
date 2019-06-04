@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled,{css} from 'styled-components';
 
 export let Word = styled.div`
     border-radius:5px;
-    box-shadow:0px 0px 2px rgba(0,0,0,0.5);
+    box-shadow:0px 0px 3px rgba(0,0,0,0.5);
     height:max-content;
     border:1px dashed black;
     display:flex;
@@ -10,7 +10,18 @@ export let Word = styled.div`
     flex-direction:column;
     justify-content:flex-start;
     padding:10px 15px 20px 15px;
-    margin: 1em 0;
+    margin-bottom:8px;
+    &:last-child{
+        margin:0;
+        
+    }
+    ${props => props.only && css`
+        transform:translateX(50%);
+        @media (max-width:760px){
+            transform:translateX(0%);
+        }
+       
+    `}
 
 `
 

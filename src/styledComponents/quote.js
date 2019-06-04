@@ -12,6 +12,7 @@ const fadeIn = keyframes`
 export let QuoteWrapper = styled.div`
     @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
     font-family: 'Open Sans Condensed',cursive;
+    
     grid-column:2/3;
     height:100%;
     display:flex;
