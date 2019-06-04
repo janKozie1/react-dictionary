@@ -8,15 +8,15 @@ self.__precacheManifest = [
     "url": "/react-dictionary/static/js/runtime~main.71ff301d.js"
   },
   {
-    "revision": "d92bb6039749fcd4aa6e",
-    "url": "/react-dictionary/static/js/main.a15a80f5.chunk.js"
+    "revision": "6af6f9556eebf9129f3c",
+    "url": "/react-dictionary/static/js/main.c92d6056.chunk.js"
   },
   {
-    "revision": "c7d8a9379b2ecedb756f",
-    "url": "/react-dictionary/static/js/2.dee061d6.chunk.js"
+    "revision": "929c1df9cc70cd0696dc",
+    "url": "/react-dictionary/static/js/2.454f8464.chunk.js"
   },
   {
-    "revision": "6be0898745ab9ba33d2641a72e959044",
+    "revision": "40ee91a7e4f562307ada0bfbec914b8a",
     "url": "/react-dictionary/index.html"
   }
 ];
