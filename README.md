@@ -1,5 +1,7 @@
 # react-dictionary
-
+  
+  live demo: https://jankozie1.github.io/react-dictionary/
+  
   Single page web app written in React.js, which uses hooks api.
 
  External libraries used:
